@@ -1,0 +1,51 @@
+[build-system]
+requires = ["hatchling>=1.27.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "funcie"
+version = "0.1.0"
+description = "Functional programming helpers for Python."
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+authors = [{ name = "Peter Daly" }]
+keywords = ["functional-programming", "predicates", "combinators", "helpers"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Topic :: Software Development :: Libraries",
+  "Typing :: Typed",
+]
+dependencies = []
+
+[dependency-groups]
+dev = [
+  "mkdocs",
+  "mkdocs-material",
+  "pre-commit",
+  "pytest",
+  "ruff",
+  "ty",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["funcie"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B"]
+ignore = ["E501"]
